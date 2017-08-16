@@ -33,7 +33,6 @@ class capitalController extends Controller
   {
       date_default_timezone_set('Asia/Shanghai');
       $update = DB::table('char')->where('id', $request->input('id'))->first();
-      //dd($update);
       if ($update->audit == 0) {
 
 
@@ -65,10 +64,11 @@ class capitalController extends Controller
             DB::rollback();
             return back()->with('error', '审核失败');
           }
-        }else{
-          return back()->with('error', '不能重复审核该信息');
-        }
-  }
+      }else{
+        return back()->with('error', '不能重复审核该信息');
+      }
+
+}
   //删除
   public function delete(Request $request)
   {

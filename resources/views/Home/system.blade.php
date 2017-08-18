@@ -49,19 +49,19 @@
                           <th>序号</th>
                           <th>系统端口号</th>
                           <th>产品模板</th>
-                          <th>交易软件标题</th>
-                          <th>交易软件导航</th>
-                          <th>交易软件服务器地址</th>
-                          <th>电话</th>
-                          <th>平台传真</th>
-                          <th>官网网址</th>
-                          <th>邮箱</th>
-                          <th>地址</th>
-                          <th>公司名称</th>
-                          <th>开模拟账户对话框公司名称</th>
-                          <th>MT4客户端-帮助-关于所需信息</th>
                           <th>客户端软件所需信息</th>
                           <th>桌面快捷方式名称</th>
+                          <th>交易软件标题名称</th>
+                          <th>交易软件导航名称</th>
+                          <th>交易软件服务器名称</th>
+                          <th>开模拟账户对话框公司名称</th>
+                          <th>MT4客户端-帮助-关于所需信息</th>
+                          <th>平台名称</th>
+                          <th>平台地址</th>
+                          <th>平台电话</th>
+                          <th>平台传真</th>
+                          <th>官网网址</th>
+                          <th>平台邮箱</th>
                           <th>图1</th>
                           <th>图2</th>
                           <th>图3</th>
@@ -97,19 +97,19 @@
                           <td>{{$a}}</td>
                           <td>{{$systems->port}}</td>
                           <td>{{$systems->template}}</td>
-                          <td>{{$systems->title}}</td>
-                          <td>{{$systems->fax}}</td>
-                          <td>{{$systems->nav}}</td>
-                          <td>{{$systems->server}}</td>
-                          <td>{{$systems->phone}}</td>
-                          <td>{{$systems->website}}</td>
-                          <td>{{$systems->email}}</td>
-                          <td>{{$systems->address}}</td>
-                          <td>{{$systems->company}}</td>
-                          <td>{{$systems->usercomp}}</td>
-                          <td>{{$systems->help}}</td>
                           <td>{{$systems->userinfo}}</td>
                           <td>{{$systems->shortcut}}</td>
+                          <td>{{$systems->title}}</td>
+                          <td>{{$systems->nav}}</td>
+                          <td>{{$systems->server}}</td>
+                          <td>{{$systems->usercomp}}</td>
+                          <td>{{$systems->help}}</td>
+                          <td>{{$systems->company}}</td>
+                          <td>{{$systems->address}}</td>
+                          <td>{{$systems->phone}}</td>
+                          <td>{{$systems->fax}}</td>
+                          <td>{{$systems->website}}</td>
+                          <td>{{$systems->email}}</td>
                           <td><img width="50px" src="{{asset($systems->img1)}}" /></td>
                           <td><img width="50px" src="{{asset($systems->img2)}}" /></td>
                           <td><img width="50px" src="{{asset($systems->img3)}}" /></td>
@@ -148,17 +148,30 @@
             <h4 class="modal-title" id="myModalLabel">修改系统</h4>
           </div>
         <form class="form-horizontal form-label-left" action="{{action('home\systemController@update')}}" method="post" enctype="multipart/form-data">
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">系统端口号 </label>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <input type="text" class="form-control" name="port" placeholder="port" value="">
             </div>
-          </div>
+          </div> -->
+              <input type="hidden" class="form-control" name="port" placeholder="port" value="443">
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <select class="select2_multiple form-control" id="sel" name="template" multiple="multiple">
                   </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端软件所需信息</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="userinfo" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">桌面快捷方式名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="shortcut" placeholder="shortcut">
                 </div>
               </div>
           <div class="form-group">
@@ -181,34 +194,52 @@
               <textarea class="form-control" rows="5" name="server" placeholder="Five lines of information"></textarea>
             </div>
           </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">开模拟账户对话框公司名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="usercomp" placeholder="call">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">MT4客户端-帮助-关于所需信息</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="help" placeholder="help">
+                </div>
+              </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">电话</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">平台名称</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-              <input type="text" class="form-control" name="phone" placeholder="phone">
+              <input type="text" class="form-control" name="company" placeholder="company">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">官网网址</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <input type="text" class="form-control" name="website" placeholder="website">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <input type="text" class="form-control" name="email" placeholder="Email">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">地址</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">平台地址</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <input type="text" class="form-control" name="address" placeholder="address">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">公司名称</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">平台电话</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-              <input type="text" class="form-control" name="company" placeholder="company">
+              <input type="text" class="form-control" name="phone" placeholder="phone">
+            </div>
+          </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台传真</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="fax" placeholder="fax">
+                </div>
+              </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">平台网址</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" name="website" placeholder="website">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">平台邮箱</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <input type="text" class="form-control" name="email" placeholder="Email">
             </div>
           </div>
           <div class="form-group">
@@ -332,6 +363,11 @@
         $('.show').children().find('input[name="email"]').val(data.email)
         $('.show').children().find('input[name="address"]').val(data.address)
         $('.show').children().find('input[name="company"]').val(data.company)
+        $('.show').children().find('input[name="usercomp"]').val(data.usercomp)
+        $('.show').children().find('input[name="help"]').val(data.help)
+        $('.show').children().find('input[name="userinfo"]').val(data.userinfo)
+        $('.show').children().find('input[name="shortcut"]').val(data.shortcut)
+        $('.show').children().find('input[name="fax"]').val(data.fax)
         var img1 = data.img1;
         var img2 = data.img2;
         var img3 = data.img3;
